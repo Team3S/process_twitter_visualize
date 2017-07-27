@@ -3,8 +3,8 @@
 import argparse
 import json
 from twython import Twython
-CONSUMER_KEY = 'vG39KwmuObu56TmYpHk5q6niM'
-CONSUMER_SECRET = 'mGxwHb3iNnsGg9P3kJKvWctPL2UjHBRWo6i9ET6wUrEVArnbSR'
+CONSUMER_KEY = 'xx'
+CONSUMER_SECRET = 'xx'
 
 def parse_args():
     """
