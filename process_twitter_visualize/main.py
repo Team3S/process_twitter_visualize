@@ -3,8 +3,10 @@
 import argparse
 import json
 from twython import Twython
-CONSUMER_KEY = 'xx'
-CONSUMER_SECRET = 'xx'
+import os
+CONSUMER_KEY = os.environ['CONSUMER_KEY']
+CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
+
 
 def parse_args():
     """
