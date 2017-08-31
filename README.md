@@ -6,6 +6,11 @@ process to get response from twitter and visualize using wordcloud
 * python2.7
 * Twython
 
+To Run locally
+----------------
+1. export you *CONSUMER_KEY* and *CONSUMER_SECRET* before you run locally
+2. Follow *Steps to execute*
+
 Steps to execute:
 ----------------
 1. *pip install -r requirements.txt*

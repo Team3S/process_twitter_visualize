@@ -2,8 +2,15 @@
 # -*- coding: utf-8 -*-
 import argparse
 import json
-from twython import Twython
+import sys
+
 import os
+
+from TwitterModule import TwitterModule
+from twython import Twython
+
+print(sys.path.append(os.path.abspath(__file__)))
+
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
 CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
 
@@ -22,24 +29,23 @@ def parse_args():
     return arguments
 
 
-def check(keyword,no_of_tweets=0):
-
+def check(keyword, no_of_tweets=0):
     twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, oauth_version=2)
     ACCESS_TOKEN = twitter.obtain_access_token()
     twitter = Twython(CONSUMER_KEY, access_token=ACCESS_TOKEN)
     tweets = []
     for status in twitter.search(q='\"{}\"'.format(keyword))['statuses']:
-        if len(tweets)<no_of_tweets:
+        if len(tweets) < no_of_tweets:
             text = status['text'].encode('utf-8')
             tweets.append(text)
-    with open('tweet_search_{}.json'.format(keyword), 'w') as f:
+    with open('resources/tweet_search_{}.json'.format(keyword), 'w') as f:
         json.dump(tweets, f, indent=4)
-
 
 
 if __name__ == '__main__':
     args = parse_args()
     keyword = args.keyword
-    no_of_tweets=args.no
-    print(keyword)
-    check(keyword,no_of_tweets)
+    no_of_tweets = args.no
+    check(keyword, no_of_tweets)
+    twitterModule = TwitterModule()
+    twitterModule.prepare_corpus('resources/tweet_search_{}.json'.format(keyword))
