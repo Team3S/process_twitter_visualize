@@ -37,7 +37,6 @@ class TwitterModule:
         """
         punctuation_translate=string.maketrans(self.punctuations,len(self.punctuations)*" ")
         self.corpus.translate(punctuation_translate)
-        print self.corpus
 
     def word_cloud(self):
         """
