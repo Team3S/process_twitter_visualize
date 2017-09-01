@@ -8,6 +8,7 @@ Created on Thu Oct 20 18:31:10 2016
 
 import argparse
 import json
+import os
 from twython import Twython
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""
@@ -45,8 +46,8 @@ def check(keyword,no_of_tweets=0):
 if __name__ == '__main__':
     with open("variables.ini","r") as json_file:
         json_object=json.load(json_file)
-    CONSUMER_KEY=json_object['consumer_key']
-    CONSUMER_SECRET=json_object['consumer_secret']
+    CONSUMER_KEY=os.environ['CONSUMER_KEY']
+    CONSUMER_SECRET=os.environ['CONSUMER_SECRET']
     args = parse_args()
     keyword = args.keyword
     no_of_tweets=int(args.no)
