@@ -50,8 +50,8 @@ def check(keyword, no_of_tweets=0):
 
 
 if __name__ == '__main__':
-    with open("variables.ini","r") as json_file:
-        json_object=json.load(json_file)
+    # with open("variables.ini","r") as json_file:
+    #     json_object=json.load(json_file)
     CONSUMER_KEY=os.environ['CONSUMER_KEY']
     CONSUMER_SECRET=os.environ['CONSUMER_SECRET']
     args = parse_args()
