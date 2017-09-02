@@ -17,16 +17,16 @@ class TwitterModule:
         self.digits=string.digits
         self.corpus=""
 
-    def prepare_corpus(self, file_name):
+    def prepare_corpus(self, tweets):
         """
         Method to prepare corpus
         :param file_name: 
         :return: 
         """
-        path = self.file_path
-        with open(file_name, 'r') as file_reader:
-            text = file_reader.read()
-        self.corpus=text
+        for tweet in tweets:
+            self.corpus+=" "
+            self.corpus+=tweet
+        print self.corpus
         self.remove_punctuations()
         self.word_cloud()
 

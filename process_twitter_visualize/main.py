@@ -38,8 +38,8 @@ def check(keyword, no_of_tweets=0):
         if len(tweets) < no_of_tweets:
             text = status['text'].encode('utf-8')
             tweets.append(text)
-    with open('resources/tweet_search_{}.json'.format(keyword), 'w') as f:
-        json.dump(tweets, f, indent=4)
+    twitter_module = TwitterModule()
+    twitter_module.prepare_corpus(tweets)
 
 
 if __name__ == '__main__':
@@ -47,5 +47,5 @@ if __name__ == '__main__':
     keyword = args.keyword
     no_of_tweets = args.no
     check(keyword, no_of_tweets)
-    twitterModule = TwitterModule()
-    twitterModule.prepare_corpus('resources/tweet_search_{}.json'.format(keyword))
+
+
