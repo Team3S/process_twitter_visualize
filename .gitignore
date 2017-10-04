@@ -4,3 +4,5 @@
 /variables.ini
 /venv/
 /tweet_search_selva.json
+/cloud.png
+/resources/tweet_search_pyspark.json
